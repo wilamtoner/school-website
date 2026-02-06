@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +23,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k1nf+a(1-+y9dxht37g+cq+^r2s*s!er5bu2ulxuzx5_0ij6p$'
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "django-insecure-k1nf+a(1-+y9dxht37g+cq+^r2s*s!er5bu2ulxuzx5_0ij6p$"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+RENDER = os.environ.get("RENDER", "")
+if os.environ.get("DEBUG") is not None:
+    DEBUG = os.environ.get("DEBUG", "").lower() == "true"
+else:
+    DEBUG = not RENDER
 
 ALLOWED_HOSTS = []
+render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if render_hostname:
+    ALLOWED_HOSTS.append(render_hostname)
+    CSRF_TRUSTED_ORIGINS = [f"https://{render_hostname}"]
+else:
+    ALLOWED_HOSTS.extend(["localhost", "127.0.0.1"])
+    env_hosts = os.environ.get("ALLOWED_HOSTS")
+    if env_hosts:
+        ALLOWED_HOSTS.extend([host.strip() for host in env_hosts.split(",") if host.strip()])
 
 
 # Application definition
@@ -42,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,11 +97,17 @@ WSGI_APPLICATION = 'schoolwebsite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+if os.environ.get("DATABASE_URL"):
+    DATABASES["default"] = dj_database_url.config(
+        conn_max_age=600,
+        ssl_require=bool(RENDER),
+    )
 
 
 # Password validation
@@ -121,9 +146,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+if not DEBUG:
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
