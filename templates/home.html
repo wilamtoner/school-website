@@ -1,0 +1,390 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bright Future Academy | Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide active">
+                {% if hero_image_url %}
+                <img src="{{ hero_image_url }}" alt="{{ hero_alt_text|default:'School Building' }}">
+                {% else %}
+                <img src="{% static 'school.jpg' %}" alt="School Building">
+                {% endif %}
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Nurturing Young Minds for Future Leadership.</span>
+                    <h2>Excellence in Education Since 1995</h2>
+                    <p>Shaping Future Leaders Through Quality Education</p>
+                    <div class="hero-actions">
+                        <a href="#news" class="btn">Discover Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" class="section news-section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="section-eyebrow">Our Latest News</p>
+                    <h2 class="section-title">Visit our insights and updates</h2>
+                </div>
+                <a class="btn btn-outline" href="#">Read more news</a>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-date">2026-02-01</div>
+                    <h3>New STEM Lab inaugurated for hands-on learning</h3>
+                    <p>Upgraded labs with modern tools to support inquiry-based science education.</p>
+                    <a class="news-link" href="#">Read More</a>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">2026-01-22</div>
+                    <h3>Scholarship applications open for 2026/27</h3>
+                    <p>Merit and need-based scholarships available for eligible students.</p>
+                    <a class="news-link" href="#">Read More</a>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">2026-01-10</div>
+                    <h3>Inter-school sports meet celebrates teamwork</h3>
+                    <p>Students showcased discipline, leadership, and sportsmanship.</p>
+                    <a class="news-link" href="#">Read More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Our Institution</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Welcome to Bright Future Academy</h3>
+                    <p>Established in 1995, we are committed to providing holistic education that nurtures intellectual, physical, emotional, and social development.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>CBSE & State Board Affiliation</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Smart Classrooms</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Well-equipped Laboratories</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sports & Cultural Activities</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="School Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Academic Programs</h2>
+            <div class="academics-grid">
+                <div class="academic-card">
+                    <i class="fas fa-school"></i>
+                    <h3>Pre-Primary</h3>
+                    <p>Nursery to KG - Age 3-5 years</p>
+                    <ul>
+                        <li>Montessori Method</li>
+                        <li>Play-based Learning</li>
+                        <li>Activity Rooms</li>
+                    </ul>
+                </div>
+                <div class="academic-card">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Primary School</h3>
+                    <p>Grade 1-5 - Age 6-10 years</p>
+                    <ul>
+                        <li>CBSE Curriculum</li>
+                        <li>Computer Education</li>
+                        <li>Language Development</li>
+                    </ul>
+                </div>
+                <div class="academic-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Secondary School</h3>
+                    <p>Grade 6-10 - Age 11-15 years</p>
+                    <ul>
+                        <li>Science & Commerce</li>
+                        <li>Career Counseling</li>
+                        <li>Competitive Exam Prep</li>
+                    </ul>
+                </div>
+                <div class="academic-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Senior Secondary</h3>
+                    <p>Grade 11-12 - Age 16-18 years</p>
+                    <ul>
+                        <li>Science Stream</li>
+                        <li>Commerce Stream</li>
+                        <li>Arts Stream</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Administration Section -->
+    <section id="administration" class="section">
+        <div class="container">
+            <h2 class="section-title">Administration</h2>
+            <div class="admin-content">
+                <div class="admin-structure">
+                    <h3><i class="fas fa-sitemap"></i> Organizational Structure</h3>
+                    <div class="structure-grid">
+                        <div class="structure-item">
+                            <h4>School Management</h4>
+                            <p>Governing Body & Trust Members</p>
+                        </div>
+                        <div class="structure-item">
+                            <h4>Principal's Office</h4>
+                            <p>Academic & Administrative Head</p>
+                        </div>
+                        <div class="structure-item">
+                            <h4>Vice Principals</h4>
+                            <p>Academic & Discipline</p>
+                        </div>
+                        <div class="structure-item">
+                            <h4>Heads of Department</h4>
+                            <p>All Subject Departments</p>
+                        </div>
+                        <div class="structure-item">
+                            <h4>Administrative Staff</h4>
+                            <p>Office, Accounts, HR</p>
+                        </div>
+                        <div class="structure-item">
+                            <h4>Support Staff</h4>
+                            <p>Maintenance & Services</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-staff">
+                    <h3><i class="fas fa-user-tie"></i> Key Administrative Staff</h3>
+                    <div class="staff-grid">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" alt="Principal">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p>Principal</p>
+                            <p>Ph.D in Education</p>
+                        </div>
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Vice Principal">
+                            <h4>Mr. Robert Chen</h4>
+                            <p>Vice Principal</p>
+                            <p>M.Ed, 15+ Years Experience</p>
+                        </div>
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80" alt="Admin Officer">
+                            <h4>Ms. Priya Sharma</h4>
+                            <p>Administrative Officer</p>
+                            <p>MBA, 10+ Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">School Activities</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="sports">Sports</button>
+                <button class="tab-btn" data-tab="cultural">Cultural</button>
+                <button class="tab-btn" data-tab="academic_events">Academic Events</button>
+                <button class="tab-btn" data-tab="clubs">Clubs</button>
+            </div>
+            
+            <div class="tab-content active" id="sports">
+                <div class="activity-grid">
+                    {% for item in activities_by_category.sports %}
+                    <div class="activity-card">
+                        <a class="activity-link" href="{% url 'activity_detail' item.slug %}">
+                            <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.summary }}</p>
+                        </a>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">No sports activities yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="tab-content" id="cultural">
+                <div class="activity-grid">
+                    {% for item in activities_by_category.cultural %}
+                    <div class="activity-card">
+                        <a class="activity-link" href="{% url 'activity_detail' item.slug %}">
+                            <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.summary }}</p>
+                        </a>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">No cultural activities yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="tab-content" id="academic_events">
+                <div class="activity-grid">
+                    {% for item in activities_by_category.academic_events %}
+                    <div class="activity-card">
+                        <a class="activity-link" href="{% url 'activity_detail' item.slug %}">
+                            <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.summary }}</p>
+                        </a>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">No academic events yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="tab-content" id="clubs">
+                <div class="activity-grid">
+                    {% for item in activities_by_category.clubs %}
+                    <div class="activity-card">
+                        <a class="activity-link" href="{% url 'activity_detail' item.slug %}">
+                            <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.summary }}</p>
+                        </a>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">No club activities yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Science Labs</h3>
+                    <p>Fully equipped Physics, Chemistry, Biology labs</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Computer Labs</h3>
+                    <p>Latest hardware with internet connectivity</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Library</h3>
+                    <p>25,000+ books, digital resources, reading rooms</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <h3>Sports Complex</h3>
+                    <p>Indoor stadium, swimming pool, playgrounds</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Cafeteria</h3>
+                    <p>Hygienic food, nutritional meals</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>Transport</h3>
+                    <p>GPS-enabled buses with safety features</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Education Street, Knowledge City,<br>State, Country - 123456</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210 (Office)<br>+91 98765 43211 (Principal)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@brightfutureacademy.edu<br>principal@brightfutureacademy.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Phone Number">
+                        <select required>
+                            <option value="">Select Department</option>
+                            <option>Admissions</option>
+                            <option>Principal's Office</option>
+                            <option>Administration</option>
+                            <option>Accounts</option>
+                            <option>Other</option>
+                        </select>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

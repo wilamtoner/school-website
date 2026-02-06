@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} | Bright Future Academy{% endblock %}
+
+{% block content %}
+<section class="page-hero py-5 bg-light">
+    <div class="container">
+        <h1 class="mb-3">{{ title }}</h1>
+        <p class="lead">{{ summary }}</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+                <img class="img-fluid rounded shadow-sm" src="{{ image_url }}" alt="{{ title }}">
+            </div>
+            <div class="col-lg-5">
+                <h2 class="h4">Program Highlights</h2>
+                <ul>
+                    <li>Seasonal training and practice schedules</li>
+                    <li>Qualified coaches and mentors</li>
+                    <li>Inter-school events and friendly competitions</li>
+                    <li>Open to students from multiple grade levels</li>
+                </ul>
+                <a class="btn btn-primary mt-3" href="{% url 'contact' %}">Get More Info</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Bright Future Academy | Admissions{% endblock %}
+
+{% block content %}
+<section class="page-hero py-5 bg-light">
+    <div class="container">
+        <h1 class="mb-3">Admissions</h1>
+        <p class="lead">Start your application and join a community that celebrates learning and leadership.</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <h2 class="h4">How to Apply</h2>
+                <ol>
+                    <li>Complete the online inquiry form.</li>
+                    <li>Submit academic records and documents.</li>
+                    <li>Schedule a campus visit and interview.</li>
+                </ol>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="h4">Key Dates</h2>
+                <ul>
+                    <li>Applications open: March 1</li>
+                    <li>Scholarship review: April 15</li>
+                    <li>Final decisions: May 10</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-4">
+            <a href="{% url 'contact' %}" class="btn btn-primary">Request Information</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
